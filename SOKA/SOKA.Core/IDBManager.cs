@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SOKA.Core
 {
@@ -9,6 +10,6 @@ namespace SOKA.Core
         int Port { get; set; }
         string UserName { get; set; }
         string Password { get; set; }
-        Task<T> Execute<T>(string Query);
+        Task<IEnumerable<T>> Execute<T>(string Query);
     }
 }

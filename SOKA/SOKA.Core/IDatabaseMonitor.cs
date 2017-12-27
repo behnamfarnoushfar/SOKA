@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOKA.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace SOKA.Core
         int IndexCheckStatusInterval { get; set; }
         int ReplicationStatusCheckInterval { get; set; }
         List<string> IndexCheckNames { get; set; }
-        List<dynamic> LastQueries { get; set; }
+        List<RunningQueryModel> LastQueries { get; set; }
         List<dynamic> LastLocks { get; set; }
         List<dynamic> LastMetrics { get; set; }
         List<dynamic> LastIndexStatuses { get; set; }
@@ -27,11 +28,14 @@ namespace SOKA.Core
         DateTime LastRun { get; set; }
 
         Task DoMonitoring();
-        Task<List<dynamic>> GetRunningQueries();
+        Task<dynamic> SaveCurrentReport();
+        Task<List<RunningQueryModel>> GetRunningQueriesAsync();
         Task<List<dynamic>> GetRunningLocks();
         Task<List<dynamic>> GetCurrentMetrics();
         Task<List<dynamic>> GetReplicationStatuses();
         Task<List<dynamic>> GetIndexStatuses();
+
+
 
         event EventHandler<dynamic> OnInstanceConnected;
         event EventHandler<dynamic> OnInstanceDisConnected;
