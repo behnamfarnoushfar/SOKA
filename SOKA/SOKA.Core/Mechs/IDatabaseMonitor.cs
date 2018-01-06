@@ -1,4 +1,5 @@
 ﻿using SOKA.Core.Models;
+using SOKA.Core.MSSQLMonitoring.Metrics;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace SOKA.Core
         int IndexCheckStatusInterval { get; set; }
         int ReplicationStatusCheckInterval { get; set; }
         List<string> IndexCheckNames { get; set; }
-        List<RunningQueryModel> LastQueries { get; set; }
+        List<RunningQueriesResult> LastQueries { get; set; }
         List<dynamic> LastLocks { get; set; }
         List<dynamic> LastMetrics { get; set; }
         List<dynamic> LastIndexStatuses { get; set; }
@@ -29,7 +30,7 @@ namespace SOKA.Core
 
         Task DoMonitoring();
         Task<dynamic> SaveCurrentReport();
-        Task<List<RunningQueryModel>> GetRunningQueriesAsync();
+        Task<List<RunningQueriesResult>> GetRunningQueriesAsync();
         Task<List<dynamic>> GetRunningLocks();
         Task<List<dynamic>> GetCurrentMetrics();
         Task<List<dynamic>> GetReplicationStatuses();

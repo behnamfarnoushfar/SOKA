@@ -43,14 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDatabaseMonitor.cs" />
-    <Compile Include="IDBManager.cs" />
-    <Compile Include="IDBSecurityAdvisor.cs" />
-    <Compile Include="IDBPerformanceAdvisor.cs" />
+    <Compile Include="Mechs\IDatabaseMonitor.cs" />
+    <Compile Include="Mechs\IDBManager.cs" />
+    <Compile Include="Mechs\IDBSecurityAdvisor.cs" />
+    <Compile Include="Mechs\IDBPerformanceAdvisor.cs" />
+    <Compile Include="Monitors\IMetricMonitor.cs" />
+    <Compile Include="Mechs\IMetricDispatcher.cs" />
+    <Compile Include="Mechs\IMetricStoreProvider.cs" />
+    <Compile Include="MetricStore.cs" />
+    <Compile Include="MetricStoreProvider.cs" />
+    <Compile Include="MetricStoreProviders\InMemoryDictionaryProvider.cs" />
+    <Compile Include="Metrics\IMetricResult.cs" />
+    <Compile Include="Metrics\IMonitorableMetric.cs" />
+    <Compile Include="MetricTypes.cs" />
     <Compile Include="Models\RunningQueryModel.cs" />
+    <Compile Include="MSSQLMonitoring\Metrics\RunningQueries.cs" />
+    <Compile Include="MSSQLMonitoring\Metrics\RunningQueriesResult.cs" />
+    <Compile Include="MSSQLMonitoring\MSSQLMonitorDispatcher.cs" />
+    <Compile Include="MSSQLMonitoring\MSSQLMetricMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOKA.cs" />
     <Compile Include="SQLDatabaseMonitor.cs" />
-    <Compile Include="SQLDbManager.cs" />
+    <Compile Include="MSSQLMonitoring\SQLDbManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

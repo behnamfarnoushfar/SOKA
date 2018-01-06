@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOKA.Core", "SOKA.Core\SOKA.Core.csproj", "{06F115B3-DA0B-4ABF-847F-AF60DAF2D3C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOKA.Core.Tests", "SOKA.Core.Tests\SOKA.Core.Tests.csproj", "{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{06F115B3-DA0B-4ABF-847F-AF60DAF2D3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F115B3-DA0B-4ABF-847F-AF60DAF2D3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06F115B3-DA0B-4ABF-847F-AF60DAF2D3C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
