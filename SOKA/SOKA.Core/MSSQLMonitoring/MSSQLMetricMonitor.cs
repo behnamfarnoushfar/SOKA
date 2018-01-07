@@ -42,5 +42,10 @@ namespace SOKA.Core.MSSQLMonitoring
         {
             throw new NotImplementedException();
         }
+
+        public Task<Tuple<IMetricResult, IEnumerable<dynamic>>> GetMetricAsync(string script)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

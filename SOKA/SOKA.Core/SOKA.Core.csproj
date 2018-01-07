@@ -47,6 +47,7 @@
     <Compile Include="Mechs\IDBManager.cs" />
     <Compile Include="Mechs\IDBSecurityAdvisor.cs" />
     <Compile Include="Mechs\IDBPerformanceAdvisor.cs" />
+    <Compile Include="Metrics\MetricResult.cs" />
     <Compile Include="Monitors\IMetricMonitor.cs" />
     <Compile Include="Mechs\IMetricDispatcher.cs" />
     <Compile Include="Mechs\IMetricStoreProvider.cs" />

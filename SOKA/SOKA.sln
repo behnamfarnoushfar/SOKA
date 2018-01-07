@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOKA.Core", "SOKA.Core\SOKA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOKA.Core.Tests", "SOKA.Core.Tests\SOKA.Core.Tests.csproj", "{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOKA.WinApp", "SOKA.WinApp\SOKA.WinApp.csproj", "{E968B777-F53D-495D-961E-18ED0D37F1BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EDEE6BB-1CB8-4DF1-82DC-1B4F24F728FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E968B777-F53D-495D-961E-18ED0D37F1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E968B777-F53D-495D-961E-18ED0D37F1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E968B777-F53D-495D-961E-18ED0D37F1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E968B777-F53D-495D-961E-18ED0D37F1BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

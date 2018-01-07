@@ -46,6 +46,8 @@ namespace SOKA.Core
                 default:
                     return null;
             }
+            if (Monitors == null)
+                Monitors = new List<IMetricMonitor>();
             Monitors.Add(newMonitor);
             return newMonitor;
         }
