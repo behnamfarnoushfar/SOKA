@@ -20,6 +20,7 @@ namespace SOKA.Core.Metrics
         int Interval { get; set; }
         string Format { get; set; }
         string Args { get; set; }
+        bool ReversedCheck { get; set; }
         MetricTypes MetricType { get; set; }
     }
 }

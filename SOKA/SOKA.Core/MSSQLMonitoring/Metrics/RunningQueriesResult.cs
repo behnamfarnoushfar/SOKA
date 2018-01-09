@@ -12,6 +12,6 @@ namespace SOKA.Core.MSSQLMonitoring.Metrics
         public double Value { get; set; }
         public DateTime UtcCaptureTime { get; set; }
         public double Delay { get; set; }
-        public dynamic MetricData { get; set; }
+        public IMetricResultDetails MetricData { get; set; }
     }
 }

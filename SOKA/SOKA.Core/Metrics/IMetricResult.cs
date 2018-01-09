@@ -11,6 +11,6 @@ namespace SOKA.Core.Metrics
         double Value { get; set; }
         DateTime UtcCaptureTime { get; set; }
         double Delay { get; set; }
-        dynamic MetricData { get; set; }
+        IMetricResultDetails MetricData { get; set; }
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace SOKA.Core.Models
+﻿using SOKA.Core.Metrics;
+
+namespace SOKA.Core.Models
 {
-    public class RunningQueryModel
+    public class RunningQueryModel:IMetricResultDetails
     {
         public int SessionId { get; set; }
         public decimal PercentComplete { get; set; }
@@ -16,5 +18,6 @@
         public decimal TotalTime { get; set; }
         public decimal Duration { get; set; }
         public string ProgramName { get; set; }
+        public double MetricValue { get; set; }
     }
 }

@@ -22,5 +22,6 @@ namespace SOKA.Core.MSSQLMonitoring.Metrics
         public string Format { get ; set ; }
         public string Args { get ; set ; }
         public MetricTypes MetricType { get ; set ; }
+        public bool ReversedCheck { get; set; }
     }
 }

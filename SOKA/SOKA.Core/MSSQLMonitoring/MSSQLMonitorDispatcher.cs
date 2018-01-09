@@ -13,16 +13,21 @@ namespace SOKA.Core.MSSQLMonitoring
         {
             DbManager = db;
         }
-        public async Task<Tuple<T, IEnumerable<K>>> ExecuteAsync<T, K>(string script) where T : IMetricResult, new()
+        public async Task<Tuple<T, IEnumerable<dynamic>>> ExecuteAsync<T>(string script) where T : IMetricResult, new() 
         {
             var before = DateTime.UtcNow;
-            var value = await DbManager.Execute<K>(script);
+            var value = await DbManager.Execute<dynamic>(script);
             var after = DateTime.UtcNow;
             T dx = new T();
             dx.UtcCaptureTime = before;
             dx.Delay = after.Subtract(before).TotalSeconds;
-            dx.Value = value.Count();
+            dx.Value =  ExtractField<double,dynamic>("MetricValue",value.FirstOrDefault());
             return Tuple.Create(dx, value);
+        }
+
+        public T ExtractField<T,K>(string Name,K resultset)
+        {
+            return (T)Convert.ChangeType((((IDictionary<string, object>)resultset))["MetricValue"],typeof(T));
         }
     }
 }

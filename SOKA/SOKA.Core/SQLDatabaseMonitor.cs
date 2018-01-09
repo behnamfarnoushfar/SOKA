@@ -67,7 +67,7 @@ namespace SOKA.Core
 
                      foreach (var monitor in SOKA.Instance.Monitors)
                      {
-                         var resul=await monitor.GetMetricAsync<RunningQueriesResult,RunningQueryModel>();
+                         var resul=await monitor.GetMetricAsync<RunningQueriesResult>();
                      }
                      //var result = await GetRunningQueriesAsync();
                      //OnInstanceConnected(this, null);

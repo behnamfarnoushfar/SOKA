@@ -42,7 +42,8 @@ namespace SOKA.Core
                 case MetricTypes.HTTP:
                     return null;
                 case MetricTypes.Network:
-                    return null;
+                    newMonitor = new PingMonitoring.PingMetricMonitor();
+                    break;
                 default:
                     return null;
             }

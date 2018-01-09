@@ -1,4 +1,5 @@
 ﻿using SOKA.Core.Metrics;
+using SOKA.Core.MSSQLMonitoring.Metrics;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -15,9 +16,31 @@ namespace SOKA.WinApp
             InitializeComponent();
         }
 
-        public void ManualSetProgress(double Value,string MetricName,double Max)
+        delegate void ManualSetProgress(double Value, string MetricName, double Max);
+        public void StartProgress(IMonitorableMetric metric)
         {
-            var percent = Value * 100 / Max;
+            Metric = metric;
+            var mtr = Core.SOKA.Instance.BuildMonitor(Metric).BindToMetric(Metric);
+            mtr.OnMetricUpdated += Mtr_OnMetricUpdated;
+            mtr.Monitor();
+        }
+        public void ManualSetProgressCallBack(double Value,string MetricName,double Max)
+        {
+            if(lblMetricName.InvokeRequired)
+            {
+                var callback = new ManualSetProgress(ManualSetProgressCallBack);
+                lblMetricName.Invoke(callback, new object[] { Value, MetricName, Max });
+            }
+            else
+            {
+                UpdateUI(Value, MetricName, Max);
+            }
+            
+        }
+
+        private void UpdateUI(double Value, string MetricName, double Max)
+        {
+            var percent = (Metric.ReversedCheck?Max-Value: Value) * 100 / Max;
             if (percent <= 40)
             {
                 lblMetricName.Text = MetricName;
@@ -29,10 +52,10 @@ namespace SOKA.WinApp
             else if (percent > 40 && percent <= 70)
             {
                 lblMetricName.Text = MetricName;
-                lblMetricName.ForeColor = Color.Yellow;
-                npbMetricLevel.ProgressColor = Brushes.Yellow;
+                lblMetricName.ForeColor = Color.Orange;
+                npbMetricLevel.ProgressColor = Brushes.Orange;
                 lblMetricValue.Text = Value.ToString();
-                lblMetricValue.ForeColor = Color.Yellow;
+                lblMetricValue.ForeColor = Color.Orange;
             }
             else
             {
@@ -42,21 +65,26 @@ namespace SOKA.WinApp
                 lblMetricValue.Text = Value.ToString();
                 lblMetricValue.ForeColor = Color.Red;
             }
-            npbMetricLevel.Value = (int)Value;
+            if (percent > npbMetricLevel.Maximum)
+                npbMetricLevel.Value = npbMetricLevel.Maximum;
+            else
+                npbMetricLevel.Value =(int)percent;
+          
         }
 
         private void ucMetricSummery_Load(object sender, EventArgs e)
         {
-            Task.Factory.StartNew(async () =>
-            {
-                while (true)
-                {
-                    var result = await Core.SOKA.Instance.BuildMonitor(Metric)
-                    .GetMetricAsync(string.Format(Metric.Format, Metric.Args));
-                    ManualSetProgress(result.Item1.Value, Metric.Name,Metric.MaxAmount);
-                    Thread.Sleep(Metric.Interval);
-                }
-            });
+           
+        }
+
+        private void Mtr_OnMetricUpdated(object sender, IMetricResult e)
+        {
+            ManualSetProgressCallBack(e.Value/*r.Next(1, 100)*/, Metric.Name, Metric.MaxAmount);
+        }
+        Random r = new Random();
+        private void npbMetricLevel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

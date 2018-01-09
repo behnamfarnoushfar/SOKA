@@ -32,6 +32,7 @@
             this.lblMetricName = new System.Windows.Forms.Label();
             this.lblMetricValue = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
+            this.btnDtl = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // npbMetricLevel
@@ -41,6 +42,7 @@
             this.npbMetricLevel.ProgressColor = null;
             this.npbMetricLevel.Size = new System.Drawing.Size(128, 23);
             this.npbMetricLevel.TabIndex = 0;
+            this.npbMetricLevel.Click += new System.EventHandler(this.npbMetricLevel_Click);
             // 
             // lblMetricName
             // 
@@ -70,12 +72,22 @@
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             // 
+            // btnDtl
+            // 
+            this.btnDtl.Location = new System.Drawing.Point(43, 49);
+            this.btnDtl.Name = "btnDtl";
+            this.btnDtl.Size = new System.Drawing.Size(42, 23);
+            this.btnDtl.TabIndex = 4;
+            this.btnDtl.Text = "Details";
+            this.btnDtl.UseVisualStyleBackColor = true;
+            // 
             // ucMetricSummery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.btnDtl);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.lblMetricValue);
             this.Controls.Add(this.lblMetricName);
@@ -94,5 +106,6 @@
         private System.Windows.Forms.Label lblMetricName;
         private System.Windows.Forms.Label lblMetricValue;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnDtl;
     }
 }
